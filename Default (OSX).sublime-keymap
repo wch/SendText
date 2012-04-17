@@ -1,0 +1,3 @@
+[
+{ "keys": ["super+enter"], "command": "send_selection" }
+]
