@@ -13,7 +13,8 @@ class SendSelectionCommand(sublime_plugin.TextCommand):
         return str
 
     @staticmethod
-    def send(selection, prog):
+    def send(selection):
+        prog = settings.get('program')
 
         if prog == "Terminal.app":
             # Remove trailing newline
@@ -47,8 +48,14 @@ class SendSelectionCommand(sublime_plugin.TextCommand):
             subprocess.call(args)
 
         elif prog == "tmux":
-            subprocess.call(['/usr/local/bin/tmux', 'set-buffer', selection])
-            subprocess.call(['/usr/local/bin/tmux', 'paste-buffer', '-d'])
+            # Get the full pathname of the tmux, if it's
+            progpath = settings.get('paths').get('tmux')
+            # If path isn't specified, just call without path
+            if not progpath:
+                progpath = 'tmux'
+
+            subprocess.call([progpath, 'set-buffer', selection])
+            subprocess.call([progpath, 'paste-buffer', '-d'])
 
 
     def run(self, edit):
@@ -65,7 +72,7 @@ class SendSelectionCommand(sublime_plugin.TextCommand):
         if(selection == "" or selection == "\n"):
             return
 
-        self.send(selection, settings.get('program'))
+        self.send(selection)
 
 
     def advanceCursor(self, region):

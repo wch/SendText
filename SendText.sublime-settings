@@ -2,5 +2,8 @@
     // "program": "Terminal.app",
     // "program": "tmux",
     "program": "iTerm",
-	"parameters": []
+	"paths":
+    {
+        // "tmux": "/usr/local/bin/tmux"
+    }
 }
