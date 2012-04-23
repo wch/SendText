@@ -3,12 +3,36 @@ import sublime_plugin
 import subprocess
 import string
 
+settings = sublime.load_settings('SendText.sublime-settings')
+
 class SendSelectionCommand(sublime_plugin.TextCommand):
     @staticmethod
-    def cleanString(str):
+    def escapeString(str):
         str = string.replace(str, '\\', '\\\\')
         str = string.replace(str, '"', '\\"')
         return str
+
+    @staticmethod
+    def send(selection, prog):
+
+        if prog == "Terminal.app":
+            # Remove trailing newline
+            selection = selection.rstrip('\n')
+            # Split selection into lines
+            selection = SendSelectionCommand.escapeString(selection).split("\n")
+
+            args = ['osascript']
+            # add code lines to list of arguments
+            for part in selection:
+                args.extend(['-e', 'tell app "Terminal" to do script "' + part +
+                    '" in window 1',])
+            # execute code
+            subprocess.call(args)
+
+        elif prog == "tmux":
+            subprocess.call(['/usr/local/bin/tmux', 'set-buffer', selection])
+            subprocess.call(['/usr/local/bin/tmux', 'paste-buffer', '-d'])
+
 
     def run(self, edit):
         # get selection
@@ -20,22 +44,11 @@ class SendSelectionCommand(sublime_plugin.TextCommand):
             else:
                 selection += self.view.substr(region) + "\n"
 
-        selection = (selection[::-1].replace('\n'[::-1], '', 1))[::-1]
-
         # only proceed if selection is not empty
-        if(selection == ""):
+        if(selection == "" or selection == "\n"):
             return
 
-        # split selection into lines
-        selection = self.cleanString(selection).split("\n")
-        # define osascript arguments
-        args = ['osascript']
-        # add code lines to list of arguments
-        for part in selection:
-            args.extend(['-e', 'tell app "Terminal" to do script "' + part +
-                '" in window 1',])
-        # execute code
-        subprocess.Popen(args)
+        self.send(selection, settings.get('program'))
 
 
     def advanceCursor(self, region):

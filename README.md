@@ -16,7 +16,7 @@ This plugin was originally based on Rtools by Karthik Ram: https://github.com/ka
 
 # Installation
 
-Clone this repo into your `Sublime Text 2/packages` directory.
+Clone this repo into your `Sublime Text 2/Packages` directory.
 
 ```
 git clone git@github.com:wch/SendText.git

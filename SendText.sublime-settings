@@ -1,0 +1,5 @@
+{
+    "program": "Terminal.app",
+    // "program": "tmux",
+	"parameters": []
+}
