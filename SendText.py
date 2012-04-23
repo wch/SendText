@@ -22,11 +22,8 @@ class SendSelectionCommand(sublime_plugin.TextCommand):
             # Split selection into lines
             selection = SendSelectionCommand.escapeString(selection)
 
-            # add code lines to list of arguments
-            args.extend(['osascript', '-e',
+            subprocess.call(['osascript', '-e',
                 'tell app "Terminal" to do script "' + selection + '" in window 1'])
-
-            subprocess.call(args)
 
         elif prog == "iTerm":
             # Remove trailing newline
