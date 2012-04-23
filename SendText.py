@@ -37,12 +37,10 @@ class SendSelectionCommand(sublime_plugin.TextCommand):
 
             selection = SendSelectionCommand.escapeString(selection)
 
-            args = ['osascript', '-e', 'tell app "iTerm"',
+            subprocess.call(['osascript', '-e', 'tell app "iTerm"',
                 '-e', 'set mysession to current session of current terminal',
                 '-e', 'tell mysession to write text "' + selection + '"',
-                '-e', 'end tell']
-
-            subprocess.call(args)
+                '-e', 'end tell'])
 
         elif prog == "tmux":
             # Get the full pathname of the tmux, if it's
