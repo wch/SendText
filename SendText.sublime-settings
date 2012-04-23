@@ -1,7 +1,7 @@
 {
-    // "program": "Terminal.app",
+    "program": "Terminal.app",
     // "program": "tmux",
-    "program": "iTerm",
+    // "program": "iTerm",
 	"paths":
     {
         // "tmux": "/usr/local/bin/tmux"
