@@ -29,6 +29,25 @@ class SendSelectionCommand(sublime_plugin.TextCommand):
             # execute code
             subprocess.call(args)
 
+        elif prog == "iTerm":
+            # Remove trailing newline
+            selection = selection.rstrip('\n')
+
+            # If it ends with a space, add a newline. iTerm has a quirk where
+            # if the scripted command doesn't end with a space, it automatically
+            # adds a newline. but if it does end with a space, it doesn't add a newline.
+            if (selection[-1] == " "):
+                selection = selection + "\n"
+
+            selection = SendSelectionCommand.escapeString(selection)
+
+            args = ['osascript', '-e', 'tell app "iTerm"',
+                '-e', 'set mysession to current session of current terminal',
+                '-e', 'tell mysession to write text "' + selection + '"',
+                '-e', 'end tell']
+
+            subprocess.call(args)
+
         elif prog == "tmux":
             subprocess.call(['/usr/local/bin/tmux', 'set-buffer', selection])
             subprocess.call(['/usr/local/bin/tmux', 'paste-buffer', '-d'])

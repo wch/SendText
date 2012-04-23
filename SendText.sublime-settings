@@ -1,5 +1,6 @@
 {
-    "program": "Terminal.app",
+    // "program": "Terminal.app",
     // "program": "tmux",
+    "program": "iTerm",
 	"parameters": []
 }
