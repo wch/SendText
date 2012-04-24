@@ -1,15 +1,15 @@
 # SendText for Sublime Text 2
 
-This package sends text to a terminal (or other program). If text is selected, it will send the selection to the terminal when you press cmd-Enter; if no text is selected, it will send the current line to the terminal and move the cursor to the next line.
+This package sends text to a terminal (or other program). If text is selected, it will send the selection to the terminal when you press cmd-Enter (Mac) or ctrl-Enter (Linux/Windows); if no text is selected, it will send the current line to the terminal and move the cursor to the next line.
+This is very useful for coding in interpreted languages.
 
-This presently works with:
+SendText presently works with:
 
-* Terminal.app on Mac OS X
-* iTerm on Mac OS X
-* tmux on any platform (Linux and Mac OS X)
+* Terminal.app on Mac OS X. SendText will send the text to the most recently active Terminal window.
+* iTerm on Mac OS X. SendText will send the text to the most recently iTerm window.
+* tmux on any platform (Linux and Mac OS X). tmux is a terminal multiplexer (like GNU screen) which you can start in any terminal emulator. SendText will send the text to the most recently active tmux session.
 
-
-Presently it just uses the topmost window/terminal for all of these options. Hopefully in the future it will also be possible to do the following:
+Hopefully in the future it will also be possible to do the following:
 
 * Attach a Sublime Text view to a particular terminal window.
 
@@ -26,10 +26,33 @@ git clone git@github.com:wch/SendText.git
 In the future, it will be possible to install via the Package Control plugin.
 
 
+# Using SendText
+
+Using SendText is simple. Start your terminal program (of the ones listed above), then, in Sublime Text, select some text and press cmd-Enter (or ctrl-Enter).
+
 ## Customization
 
-* In the `SendText.sublime-settings` file, uncomment the appropriate line for Terminal.app, iTerm, or tmux.
-* If you use tmux, you may need to set the path to make it work. In the settings file, uncomment the line for tmux and set the correct path. (This seems to be necessary for me on Mac OS X and tmux installed in /usr/local/bin, but probably won't be necessary if tmux is in /usr/bin.)
+You can configure SendText by editing the file `SendText/SendText.sublime-settings`.
+
+First, choose which terminal program you want to use, and uncomment the appropriate line. For example, this tells SendText to use Terminal.app:
+
+```json
+    "program": "Terminal.app",
+    // "program": "tmux",
+    // "program": "iTerm",
+```
+
+
+If you use tmux, you may need to explicitly set the path to make it work.
+(This seems to be necessary for me on Mac OS X and with tmux installed in `/usr/local/bin`, but YMMV.)
+In the `paths`, set the value for tmux to the full path to the executable. For example:
+
+```json
+    "paths":
+    {
+        "tmux": "/usr/local/bin/tmux"
+    }
+```
 
 
 ## Key bindings
