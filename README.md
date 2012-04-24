@@ -7,7 +7,9 @@ SendText presently works with:
 
 * Terminal.app on Mac OS X. SendText will send the text to the most recently active Terminal window.
 * iTerm on Mac OS X. SendText will send the text to the most recently iTerm window.
+* GNU screen on any platform (Linux and Mac OS X). Screen is a terminal multiplexer which you can start in any terminal emulator. SendText will send the text to the most recently active screen session.
 * tmux on any platform (Linux and Mac OS X). tmux is a terminal multiplexer (like GNU screen) which you can start in any terminal emulator. SendText will send the text to the most recently active tmux session.
+
 
 Hopefully in the future it will also be possible to do the following:
 
@@ -37,19 +39,21 @@ First, choose which terminal program you want to use, and uncomment the appropri
 
 ```
     "program": "Terminal.app",
-    // "program": "tmux",
     // "program": "iTerm",
+    // "program": "tmux",
+    // "program": "screen",
 ```
 
 If you're using Terminal.app or iTerm, that's all you need to do.
-If you use tmux, you may need to explicitly set the path to make it work.
+If you use tmux or screen, you may need to explicitly set the path to make it work.
 (This seems to be necessary for me on Mac OS X and with tmux installed in `/usr/local/bin`, but YMMV.)
-In the `paths`, set the value for tmux to the full path to the executable. For example:
+In the `paths`, set the value for tmux or screen to the full path to the executable. For example:
 
 ```
     "paths":
     {
         "tmux": "/usr/local/bin/tmux"
+        "screen": "/usr/bin/screen"
     }
 ```
 
