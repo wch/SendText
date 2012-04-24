@@ -15,9 +15,13 @@ Hopefully in the future it will also be possible to do the following:
 
 This plugin was originally based on Rtools by Karthik Ram: https://github.com/karthikram/Rtools
 
-# Installation
+## Installation
 
-Clone this repo into your `Sublime Text 2/Packages` directory.
+Clone this repo into your `Sublime Text 2/Packages` directory. This will be in different places depending on the OS:
+
+* Windows: `%APPDATA%\Sublime Text 2\Packages`
+* OS X: `~/Library/Application Support/Sublime Text 2/Packages`
+* Linux: `~/.config/sublime-text-2`
 
 ```
 git clone git@github.com:wch/SendText.git
@@ -25,36 +29,35 @@ git clone git@github.com:wch/SendText.git
 
 In the future, it will be possible to install via the Package Control plugin.
 
+## Configuration
 
-# Using SendText
-
-Using SendText is simple. Start your terminal program (of the ones listed above), then, in Sublime Text, select some text and press cmd-Enter (or ctrl-Enter).
-
-## Customization
-
-You can configure SendText by editing the file `SendText/SendText.sublime-settings`.
+You can configure SendText by editing the file `SendText/SendText.sublime-settings`. 
 
 First, choose which terminal program you want to use, and uncomment the appropriate line. For example, this tells SendText to use Terminal.app:
 
-```json
+```
     "program": "Terminal.app",
     // "program": "tmux",
     // "program": "iTerm",
 ```
 
-
+If you're using Terminal.app or iTerm, that's all you need to do.
 If you use tmux, you may need to explicitly set the path to make it work.
 (This seems to be necessary for me on Mac OS X and with tmux installed in `/usr/local/bin`, but YMMV.)
 In the `paths`, set the value for tmux to the full path to the executable. For example:
 
-```json
+```
     "paths":
     {
         "tmux": "/usr/local/bin/tmux"
     }
 ```
 
+## Using SendText
+
+Using SendText is simple. Start your terminal program (of the ones listed above), then, in Sublime Text, select some text and press cmd-Enter (or ctrl-Enter).
+
 
 ## Key bindings
 
-To preserve or change these key bindings, copy them to your `Key Bindings - User` file.
+To preserve or change the key bindings, copy them to your `Key Bindings - User` file.
