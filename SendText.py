@@ -52,6 +52,15 @@ class SendSelectionCommand(sublime_plugin.TextCommand):
             subprocess.call([progpath, 'set-buffer', selection])
             subprocess.call([progpath, 'paste-buffer', '-d'])
 
+        elif prog == "screen":
+            # Get the full pathname of the tmux, if it's
+            progpath = settings.get('paths').get('screen')
+            # If path isn't specified, just call without path
+            if not progpath:
+                progpath = 'screen'
+
+            subprocess.call([progpath, '-X', 'stuff', selection])
+
 
     def run(self, edit):
         # get selection

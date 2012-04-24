@@ -1,9 +1,11 @@
 {
     "program": "Terminal.app",
-    // "program": "tmux",
     // "program": "iTerm",
+    // "program": "tmux",
+    // "program": "screen",
     "paths":
     {
         // "tmux": "/usr/local/bin/tmux"
+        // "screen": "/usr/local/bin/screen"
     }
 }
