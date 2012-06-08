@@ -19,7 +19,11 @@ This plugin was originally based on Rtools by Karthik Ram: https://github.com/ka
 
 ## Installation
 
-Clone this repo into your `Sublime Text 2/Packages` directory. This will be in different places depending on the OS:
+The easy way is to first install the [Package Control](http://wbond.net/sublime_packages/package_control/installation) plugin.
+Once it's installed, press Ctrl-Shift-P (or Cmd-Shift-P), type `install`, and select "Package Control: Install Packages".
+Then type "sendtext", and choose to install the SendText plugin.
+
+The other way is to clone this git repository into your `Sublime Text 2/Packages` directory. This will be in different places depending on the OS:
 
 * Windows: `%APPDATA%\Sublime Text 2\Packages`
 * OS X: `~/Library/Application Support/Sublime Text 2/Packages`
@@ -28,8 +32,6 @@ Clone this repo into your `Sublime Text 2/Packages` directory. This will be in d
 ```
 git clone git@github.com:wch/SendText.git
 ```
-
-In the future, it will be possible to install via the Package Control plugin.
 
 ## Configuration
 
