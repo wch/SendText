@@ -1,11 +1,15 @@
 {
-    "program": "Terminal.app",
-    // "program": "iTerm",
-    // "program": "tmux",
-    // "program": "screen",
-    "paths":
-    {
-        // "tmux": "/usr/local/bin/tmux"
-        // "screen": "/usr/local/bin/screen"
-    }
+	// Uncomment the program you want send text to:
+	"program": "Terminal.app",
+	// "program": "iTerm",
+	// "program": "tmux",
+	// "program": "screen",
+	"paths":
+	{
+		// It might be necessary to explicitly set path (usually /usr/bin
+		// or /usr/local/bin) to tmux and screen. Uncomment below and specify
+		// the correct path:
+		// "tmux": "/usr/local/bin/tmux",
+		// "screen": "/usr/local/bin/screen"
+	}
 }
