@@ -1,4 +1,4 @@
-# SendText for Sublime Text 2
+# SendText for Sublime Text 2 and 3
 
 This package sends text to a terminal (or other program). If text is selected, it will send the selection to the terminal when you press cmd-Enter (Mac) or ctrl-Enter (Linux/Windows); if no text is selected, it will send the current line to the terminal and move the cursor to the next line.
 This is very useful for coding in interpreted languages.
@@ -23,7 +23,7 @@ The easy way is to first install the [Package Control](http://wbond.net/sublime_
 Once it's installed, press Ctrl-Shift-P (or Cmd-Shift-P), type `install`, and select "Package Control: Install Packages".
 Then type "sendtext", and choose to install the SendText plugin.
 
-The other way is to clone this git repository into your `Sublime Text 2/Packages` directory. This will be in different places depending on the OS:
+The other way is to clone this git repository into your `Sublime Text 2/Packages` or `Sublime Text 3/Packages` directory. This will be in different places depending on the OS (for ST3, replace the 2 with 3):
 
 * Windows: `%APPDATA%\Sublime Text 2\Packages`
 * OS X: `~/Library/Application Support/Sublime Text 2/Packages`
@@ -55,7 +55,7 @@ In the `paths`, set the value for tmux or screen to the full path to the executa
     "paths":
     {
         "tmux": "/usr/local/bin/tmux"
-        "screen": "/usr/bin/screen"
+        "screen": "/usr/local/bin/screen"
     }
 ```
 
