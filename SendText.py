@@ -8,8 +8,8 @@ settings = {}
 class SendSelectionCommand(sublime_plugin.TextCommand):
     @staticmethod
     def escapeString(s):
-        s = str.replace(s, '\\', '\\\\')
-        s = str.replace(s, '"', '\\"')
+        s = s.replace('\\', '\\\\')
+        s = s.replace('"', '\\"')
         return s
 
     @staticmethod
