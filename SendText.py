@@ -3,7 +3,7 @@ import sublime_plugin
 import subprocess
 import string
 
-settings = sublime.load_settings('SendText.sublime-settings')
+settings = {}
 
 class SendSelectionCommand(sublime_plugin.TextCommand):
     @staticmethod
@@ -63,6 +63,9 @@ class SendSelectionCommand(sublime_plugin.TextCommand):
 
 
     def run(self, edit):
+        global settings
+        settings = sublime.load_settings('SendText.sublime-settings')
+
         # get selection
         selection = ""
         for region in self.view.sel():
