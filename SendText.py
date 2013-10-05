@@ -7,10 +7,10 @@ settings = sublime.load_settings('SendText.sublime-settings')
 
 class SendSelectionCommand(sublime_plugin.TextCommand):
     @staticmethod
-    def escapeString(str):
-        str = string.replace(str, '\\', '\\\\')
-        str = string.replace(str, '"', '\\"')
-        return str
+    def escapeString(s):
+        s = str.replace(s, '\\', '\\\\')
+        s = str.replace(s, '"', '\\"')
+        return s
 
     @staticmethod
     def send(selection):
