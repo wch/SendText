@@ -30,7 +30,7 @@ The other way is to clone this git repository into your `Sublime Text 2/Packages
 * Linux: `~/.config/sublime-text-2`
 
 ```
-git clone git@github.com:wch/SendText.git
+git clone https://github.com/wch/SendText.git
 ```
 
 ## Configuration
