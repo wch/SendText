@@ -33,9 +33,13 @@ The other way is to clone this git repository into your `Sublime Text 2/Packages
 git clone https://github.com/wch/SendText.git
 ```
 
-## Configuration
+## Program configuration
 
-You can configure SendText by editing the file `SendText/SendText.sublime-settings`. 
+You can configure SendText by going to:
+
+```
+Preferences -> Package Settings -> SendText -> Settings - Default
+```
 
 First, choose which terminal program you want to use, and uncomment the appropriate line. For example, this tells SendText to use Terminal.app:
 
@@ -64,6 +68,28 @@ In the `paths`, set the value for tmux or screen to the full path to the executa
 Using SendText is simple. Start your terminal program (of the ones listed above), then, in Sublime Text, select some text and press cmd-Enter (or ctrl-Enter).
 
 
-## Key bindings
+## Configuring key bindings
 
-To preserve or change the key bindings, copy them to your `Key Bindings - User` file.
+To change the key bindings, go to:
+
+```
+Preferences -> Package Settings -> SendText -> Key Bindings - Default
+```
+
+The default value for Linux and Windows is:
+
+```
+[
+{ "keys": ["ctrl+enter"], "command": "send_selection" }
+]
+```
+
+And for Mac OS, it uses the Cmd key (`super`) instead of Ctrl:
+
+```
+[
+{ "keys": ["super+enter"], "command": "send_selection" }
+]
+```
+
+Change the value of `"keys"` to the key combination you want to use.
