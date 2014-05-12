@@ -15,7 +15,7 @@ Hopefully in the future it will also be possible to do the following:
 
 * Attach a Sublime Text view to a particular terminal window.
 
-This plugin was originally based on Rtools by Karthik Ram: https://github.com/karthikram/Rtools
+This plugin was originally based on Rtools by Karthik Ram: https://github.com/karthik/Rtools
 
 ## Installation
 
