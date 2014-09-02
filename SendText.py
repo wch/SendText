@@ -59,7 +59,12 @@ class SendSelectionCommand(sublime_plugin.TextCommand):
             if not progpath:
                 progpath = 'screen'
 
-            subprocess.call([progpath, '-X', 'stuff', selection])
+            if len(selection)<2000:
+                subprocess.call([progpath, '-X', 'stuff', selection])
+            else:
+                with open('/tmp/cmd.txt', 'w') as file_:
+                    file_.write(selection)
+                subprocess.call([progpath, '-X', 'stuff', ". /tmp/cmd.txt\n"])
 
 
     def run(self, edit):
