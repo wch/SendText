@@ -2,6 +2,7 @@ import sublime
 import sublime_plugin
 import subprocess
 import string
+import tempfile
 
 settings = {}
 
@@ -59,7 +60,13 @@ class SendSelectionCommand(sublime_plugin.TextCommand):
             if not progpath:
                 progpath = 'screen'
 
-            subprocess.call([progpath, '-X', 'stuff', selection])
+            if len(selection)<2000:
+                subprocess.call([progpath, '-X', 'stuff', selection])
+            else:
+                with tempfile.NamedTemporaryFile() as tmp:
+                    with open(tmp.name, 'w') as file:
+                        file.write(selection)
+                        subprocess.call([progpath, '-X', 'stuff', ". %s\n" % (file.name)])
 
 
     def run(self, edit):
