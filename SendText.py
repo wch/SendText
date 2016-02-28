@@ -39,7 +39,7 @@ class SendSelectionCommand(sublime_plugin.TextCommand):
             selection = SendSelectionCommand.escapeString(selection)
 
             subprocess.call(['osascript', '-e', 'tell app "iTerm"',
-                '-e', 'set mysession to current session of current terminal',
+                '-e', 'set mysession to current session of current window',
                 '-e', 'tell mysession to write text "' + selection + '"',
                 '-e', 'end tell'])
 
